@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import Shop from "./scenes/Shop.js"; // Import the ShopScene class
 import ShopButton from "./scenes/ShopButton.js"; // Import the ShopButton class
+import Background from "./scenes/Background.js"; // Import the Background class
 
 // Game configuration
 const config = {
@@ -8,11 +9,10 @@ const config = {
   width: 800,
   height: 800,
   canvas: gameCanvas,
-  backgroundColor: "#2a2a2a",
   Physics: {
-    default: "arcade"
+    default: "arcade",
   },
-  scene: [Shop,ShopButton],
+  scene: [Background, Shop, ShopButton],
 };
 
 // Initialize the game
