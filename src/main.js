@@ -1,24 +1,19 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import Phaser from "phaser";
+import Shop from "./scenes/Shop.js"; // Import the ShopScene class
+import ShopButton from "./scenes/ShopButton.js"; // Import the ShopButton class
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Game configuration
+const config = {
+  type: Phaser.WEBGL,
+  width: 800,
+  height: 800,
+  canvas: gameCanvas,
+  backgroundColor: "#2a2a2a",
+  Physics: {
+    default: "arcade"
+  },
+  scene: [Shop,ShopButton],
+};
 
-setupCounter(document.querySelector('#counter'))
+// Initialize the game
+const game = new Phaser.Game(config);
